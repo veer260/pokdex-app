@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      bit: ["Press Start 2P"],
+      raleway: ["Raleway"],
+    },
     extend: {},
   },
   plugins: [],
