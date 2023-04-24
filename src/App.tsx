@@ -1,58 +1,37 @@
-import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
-import "./App.css";
-import { defaultImages, images } from "../src/utils/getPokemonImages";
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+// import "./App.css";
+import Background from "./components/Background";
+import Navbar from "./sections/Navbar";
+// import Wrapper from "./sections/Wrapper";
+import Footer from "./sections/Footer";
+import { Routes, Route } from "react-router-dom";
+import Search from "./pages/Search";
+import About from "./pages/About";
+import MyList from "./pages/MyList";
+import Compare from "./pages/Compare";
+import Pokemon from "./pages/Pokemon";
 
 function App() {
-  console.log(images);
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header ">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p className=" text-emerald-500">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="relative font-raleway ">
+      <Background />
+
+      <div className="bg-[rgba(4,6,20,0.85)] text-white flex flex-col justify-between backdrop-blur-md h-[100vh]">
+        <Navbar />
+        <Routes>
+          <Route path="/search" element={<Search />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/list" element={<MyList />} />
+          <Route path="/compare" element={<Compare />} />
+          <Route path="/pokemon/:id" element={<Pokemon />} />
+        </Routes>
+        {/* <Wrapper /> */}
+        <Footer />
+      </div>
     </div>
   );
 }
