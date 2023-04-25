@@ -20,7 +20,7 @@ function App() {
     <div className="relative font-raleway ">
       <Background />
 
-      <div className="bg-[rgba(4,6,20,0.85)] text-white flex flex-col justify-between backdrop-blur-md h-[100vh]">
+      <div className="bg-[rgba(4,6,20,0.85)] text-white flex flex-col justify-between backdrop-blur-sm h-[100vh]">
         <Navbar />
         <Routes>
           <Route path="/search" element={<Search />} />
