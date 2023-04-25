@@ -13,7 +13,7 @@ export interface GeneratedPokemonType {
   name: string;
   id: number;
   image: string;
-  type: PokemonTypeInterface[];
+  types: PokemonTypeInterface[];
 }
 
 export interface PokemonTypeInterface {
