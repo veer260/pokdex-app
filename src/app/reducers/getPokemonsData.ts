@@ -8,7 +8,7 @@ import { pokemonTypes } from "../../utils/PokemonTypes";
 const getPokemonsData = createAsyncThunk(
   "pokemon/randomPokemon",
   async (pokemons: GenericPokemonType[]) => {
-    const pokemonsData: GeneratedPokemonType = [];
+    const pokemonsData: GeneratedPokemonType[] = [];
     try {
       for await (const pokemon of pokemons) {
         const {
@@ -35,7 +35,7 @@ const getPokemonsData = createAsyncThunk(
           });
         }
       }
-      console.log("pokemonsData:", pokemonsData);
+      //   console.log("pokemonsData:", pokemonsData);
       return pokemonsData;
     } catch (error) {
       console.log(error);
