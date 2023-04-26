@@ -47,7 +47,7 @@ const Navbar = () => {
     console.log(location.pathname);
   }, [location.pathname]);
   return (
-    <nav className="text-white font-bit h-[10%] flex justify-between">
+    <nav className="text-white font-bit min-h-[10vh] flex justify-between">
       <div className="flex items-center justify-center w-16 h-full border-white border-opacity-20 border-[1px]">
         <img src={pokeballIcon} className="w-8 h-8" alt="pokeball Icon" />
       </div>

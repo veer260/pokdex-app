@@ -1,6 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 // import "./App.css";
 import Background from "./components/Background";
 import Navbar from "./sections/Navbar";
@@ -20,7 +19,7 @@ function App() {
     <div className="relative font-raleway ">
       <Background />
 
-      <div className="bg-[rgba(4,6,20,0.85)] text-white flex flex-col justify-between backdrop-blur-sm h-[100vh]">
+      <div className="bg-[rgba(4,6,20,0.85)] h-[100vh] text-white flex flex-col justify-between backdrop-blur-sm overflow-y-hidden">
         <Navbar />
         <Routes>
           <Route path="/search" element={<Search />} />

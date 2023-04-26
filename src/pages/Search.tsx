@@ -33,7 +33,7 @@ const Search: React.FC<Props> = ({ styling }) => {
 
   return (
     <div className={styling}>
-      <div>
+      <div className="">
         {randomPokemons && randomPokemons.length > 0 && (
           <PokemonCards randomPokemons={randomPokemons} />
         )}
