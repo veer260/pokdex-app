@@ -4,6 +4,7 @@ import { IoMdGitCompare } from "react-icons/io";
 import { useAppDispatch } from "../app/hooks";
 import { addToCompare } from "../app/slices/PokemonSlice";
 import { GeneratedPokemonType } from "../utils/type";
+import { setToast } from "../app/slices/AppSlice";
 
 interface CardNavProp {
   pathname: string;
@@ -22,6 +23,11 @@ const CardNav: React.FC<CardNavProp> = ({ pathname, pokemon }) => {
       <IoMdGitCompare
         onClick={() => {
           dispatch(addToCompare(pokemon));
+          dispatch(
+            setToast(
+              `You can now compare ${pokemon.name.toUpperCase()} with other pokemons`
+            )
+          );
         }}
         className="text-teal-500 cursor-pointer hover:animate-pulse"
       />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // import "./App.css";
 import Background from "./components/Background";
@@ -11,9 +11,30 @@ import About from "./pages/About";
 import MyList from "./pages/MyList";
 import Compare from "./pages/Compare";
 import Pokemon from "./pages/Pokemon";
+import { ToastContainer, ToastOptions, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { clearToasts } from "./app/slices/AppSlice";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { toasts } = useAppSelector((state) => state.app);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (toasts.length) {
+      const toastOptions: ToastOptions = {
+        position: "bottom-right",
+        autoClose: 2000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      };
+      toasts.map((message) => {
+        console.log(message);
+        toast(message, toastOptions);
+      });
+      dispatch(clearToasts());
+    }
+  }, [toasts]);
 
   return (
     <div className="relative font-raleway ">
@@ -30,6 +51,7 @@ function App() {
         </Routes>
         {/* <Wrapper /> */}
         <Footer />
+        <ToastContainer />
       </div>
     </div>
   );
