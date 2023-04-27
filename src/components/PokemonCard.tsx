@@ -3,7 +3,7 @@ import { GeneratedPokemonType } from "../utils/type";
 import CardNav from "./CardNav";
 import { useLocation } from "react-router";
 import TypesFooter from "./TypesFooter";
-import { useAppSelector } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 interface PokemonCardProp {
   pokemon: GeneratedPokemonType;
@@ -11,10 +11,11 @@ interface PokemonCardProp {
 
 const PokemonCard: React.FC<PokemonCardProp> = ({ pokemon }) => {
   const { pathname } = useLocation();
+  // const dispatch = useAppDispatch();
   // const { types } = useAppSelector((state) => state.pokemon.randomPokemons)
   return (
     <div className="flex flex-col  items-center bg-gray-700 bg-opacity-70 bg-[rgba(14, 5, 5, 0.8)] p-4 text-white rounded-2xl">
-      <CardNav pathname={pathname} />
+      <CardNav pathname={pathname} pokemon={pokemon} />
       <h1 className="text-xl font-bold tracking-widest text-center uppercase font-raleway ">
         {pokemon.name}
       </h1>
