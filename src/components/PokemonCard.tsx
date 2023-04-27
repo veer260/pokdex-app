@@ -13,7 +13,7 @@ const PokemonCard: React.FC<PokemonCardProp> = ({ pokemon }) => {
   const { pathname } = useLocation();
   // const { types } = useAppSelector((state) => state.pokemon.randomPokemons)
   return (
-    <div className="flex flex-col p-4 items-center text-white bg-[#32313A] rounded-2xl">
+    <div className="flex flex-col  items-center bg-gray-700 bg-opacity-70 bg-[rgba(14, 5, 5, 0.8)] p-4 text-white rounded-2xl">
       <CardNav pathname={pathname} />
       <h1 className="text-xl font-bold tracking-widest text-center uppercase font-raleway ">
         {pokemon.name}
@@ -24,6 +24,7 @@ const PokemonCard: React.FC<PokemonCardProp> = ({ pokemon }) => {
           className="w-[200px] drop-shadow-imageShadow "
           src={pokemon.image}
           alt=""
+          loading="lazy"
         />
       </div>
 
