@@ -5,6 +5,7 @@ import { useAppDispatch } from "../app/hooks";
 import { addToCompare } from "../app/slices/PokemonSlice";
 import { GeneratedPokemonType } from "../utils/type";
 import { setToast } from "../app/slices/AppSlice";
+import { addPokemonToList } from "../app/reducers/addPokemonToList";
 
 interface CardNavProp {
   pathname: string;
@@ -16,7 +17,12 @@ const CardNav: React.FC<CardNavProp> = ({ pathname, pokemon }) => {
   return (
     <div className="flex justify-between w-full mb-2 text-lg">
       {pathname.includes("/pokemon") || pathname.includes("/search") ? (
-        <FaPlus className="text-green-500" />
+        <FaPlus
+          onClick={() => {
+            dispatch(addPokemonToList(pokemon));
+          }}
+          className="text-green-500"
+        />
       ) : (
         <FaTrash className="text-red-500" />
       )}

@@ -10,6 +10,7 @@ const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
   randomPokemons: undefined,
   compareQueue: [],
+  userPokemons: [],
 };
 
 const PokemonSlice = createSlice({

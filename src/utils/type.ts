@@ -6,6 +6,7 @@ export interface PokemonTypeInitialState {
   allPokemon: undefined | GenericPokemonType[];
   randomPokemons: undefined | GeneratedPokemonType[];
   compareQueue: GeneratedPokemonType[];
+  userPokemons: undefined | UserPokemonsType[];
 }
 
 export interface GenericPokemonType {
