@@ -12,6 +12,10 @@ export interface GenericPokemonType {
   url: string;
 }
 
+export interface UserPokemonsType extends GeneratedPokemonType {
+  firebaseId?: string;
+}
+
 export interface GeneratedPokemonType {
   name: string;
   id: number;

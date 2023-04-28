@@ -7,6 +7,19 @@ module.exports = {
       raleway: ["Raleway"],
     },
     extend: {
+      keyframes: {
+        big: {
+          "0%": {
+            scale: "1",
+          },
+          "100%": {
+            scale: "1.2",
+          },
+        },
+      },
+      animation: {
+        grow: "big 0.2s 1 ease-out forwards",
+      },
       dropShadow: {
         imageShadow: "20px 10px 10px rgba(20, 18, 18, 0.5058823529)",
         "4xl": [
