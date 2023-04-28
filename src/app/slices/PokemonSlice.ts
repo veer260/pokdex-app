@@ -29,11 +29,15 @@ const PokemonSlice = createSlice({
     },
     removeFromCompare: (state, action) => {
       const index = state.compareQueue.findIndex(
-        (pokemon: GeneratedPokemonType) => pokemon.id === action.payload.id
+        (pokemon: GeneratedPokemonType) => pokemon.id == action.payload.id
       );
-      const queue = [...state.compareQueue];
+      console.log(action.payload);
+      let queue = [...state.compareQueue];
+      console.log({ queue });
+      // console.log("removed :", queue.splice(index, 1));
 
-      state.compareQueue = queue.splice(index, 1);
+      queue.splice(index, 1);
+      state.compareQueue = queue;
     },
   },
   extraReducers: (builder) => {

@@ -2,6 +2,8 @@ import React from "react";
 import { PokemonTypeInterface, UserPokemonsType } from "../utils/type";
 import { pokemonTypes } from "../utils/PokemonTypes";
 import PokemonProperty from "./PokemonProperty";
+import { useAppDispatch } from "../app/hooks";
+import { removeFromCompare } from "../app/slices/PokemonSlice";
 
 interface PokemonWithStrengthWeaknessProps {
   pokemon: UserPokemonsType;
@@ -31,6 +33,8 @@ const PokemonWithStrengthWeakness: React.FC<
   PokemonWithStrengthWeaknessProps
 > = ({ pokemon }) => {
   // console.log({ pokemon });
+
+  const dispatch = useAppDispatch();
   const typeImgArray = createTypeImgArray("resistance", pokemon.types);
   // console.log({ typeImgArray });
   // const images = pokemon.types.map((type) => {
@@ -98,7 +102,12 @@ const PokemonWithStrengthWeakness: React.FC<
           <button className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-green-500 border-1">
             view
           </button>
-          <button className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-red-500 border-1">
+          <button
+            className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-red-500 border-1"
+            onClick={() => {
+              dispatch(removeFromCompare(pokemon));
+            }}
+          >
             remove
           </button>
         </div>
