@@ -17,6 +17,10 @@ module.exports = {
           },
         },
       },
+      colors: {
+        "primary-color": "var(--accent-color)",
+        "secondary-color": "var(--secondary-color)",
+      },
       animation: {
         grow: "big 0.1s 1 ease-in forwards",
       },
