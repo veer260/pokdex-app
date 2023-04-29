@@ -4,6 +4,7 @@ import { RootState } from "../store";
 import { setToast } from "../slices/AppSlice";
 import { addDoc } from "firebase/firestore";
 import { pokemonListRef } from "../../utils/FirebaseConfig";
+import { getUserPokemons } from "./getUserpokemons";
 
 export const addPokemonToList = createAsyncThunk(
   "/pokemons/addPokemon",
@@ -52,6 +53,7 @@ export const addPokemonToList = createAsyncThunk(
         dispatch(
           setToast(`${pokemon.name.toUpperCase()} added to your collection`)
         );
+        dispatch(getUserPokemons());
       } else {
         dispatch(
           setToast(
