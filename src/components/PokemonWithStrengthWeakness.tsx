@@ -4,6 +4,7 @@ import { pokemonTypes } from "../utils/PokemonTypes";
 import PokemonProperty from "./PokemonProperty";
 import { useAppDispatch } from "../app/hooks";
 import { removeFromCompare } from "../app/slices/PokemonSlice";
+import { addPokemonToList } from "../app/reducers/addPokemonToList";
 
 interface PokemonWithStrengthWeaknessProps {
   pokemon: UserPokemonsType;
@@ -96,7 +97,12 @@ const PokemonWithStrengthWeakness: React.FC<
         />
 
         <div className="flex h-[50px] w-full mt-2 ">
-          <button className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-teal-500 border-1">
+          <button
+            onClick={() => {
+              dispatch(addPokemonToList(pokemon));
+            }}
+            className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-teal-500 border-1"
+          >
             Add
           </button>
           <button className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-green-500 border-1">

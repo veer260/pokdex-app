@@ -30,7 +30,7 @@ const CardNav: React.FC<CardNavProp> = ({ pathname, pokemon }) => {
             //@ts-ignore
             dispatch(removePokemonFromUserList({ id: pokemon.firebaseId }));
           }}
-          className="text-red-500"
+          className="text-red-500 hover:animate-grow cursor-pointer"
         />
       )}
       <IoMdGitCompare
