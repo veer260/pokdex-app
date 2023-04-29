@@ -40,7 +40,7 @@ const getPokemonsData = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-    console.log("pokemons:", pokemons);
+    // console.log("pokemons:", pokemons);
   }
 );
 

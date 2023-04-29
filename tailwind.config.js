@@ -13,12 +13,12 @@ module.exports = {
             scale: "1",
           },
           "100%": {
-            scale: "1.2",
+            scale: "1.3",
           },
         },
       },
       animation: {
-        grow: "big 0.2s 1 ease-out forwards",
+        grow: "big 0.1s 1 ease-in forwards",
       },
       dropShadow: {
         imageShadow: "20px 10px 10px rgba(20, 18, 18, 0.5058823529)",

@@ -18,7 +18,7 @@ const MyList: React.FC<Props> = ({ styling }) => {
   }, [dispatch, userInfo]);
   return (
     <div className={styling}>
-      {userInfo?.email ? (
+      {userInfo?.email && userPokemons?.length ? (
         <div className="w-full h-full overflow-y-scroll">
           <PokemonCards randomPokemons={userPokemons} />
         </div>

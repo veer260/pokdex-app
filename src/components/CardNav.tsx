@@ -3,13 +3,14 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import { IoMdGitCompare } from "react-icons/io";
 import { useAppDispatch } from "../app/hooks";
 import { addToCompare } from "../app/slices/PokemonSlice";
-import { GeneratedPokemonType } from "../utils/type";
+import { GeneratedPokemonType, UserPokemonsType } from "../utils/type";
 import { setToast } from "../app/slices/AppSlice";
 import { addPokemonToList } from "../app/reducers/addPokemonToList";
+import { removePokemonFromUserList } from "../app/reducers/removePokemonFromUserlist";
 
 interface CardNavProp {
   pathname: string;
-  pokemon: GeneratedPokemonType;
+  pokemon: UserPokemonsType;
 }
 
 const CardNav: React.FC<CardNavProp> = ({ pathname, pokemon }) => {
@@ -21,10 +22,16 @@ const CardNav: React.FC<CardNavProp> = ({ pathname, pokemon }) => {
           onClick={() => {
             dispatch(addPokemonToList(pokemon));
           }}
-          className="text-green-500"
+          className="text-green-500 transition-all duration-200 cursor-pointer hover:animate-grow"
         />
       ) : (
-        <FaTrash className="text-red-500" />
+        <FaTrash
+          onClick={() => {
+            //@ts-ignore
+            dispatch(removePokemonFromUserList({ id: pokemon.firebaseId }));
+          }}
+          className="text-red-500"
+        />
       )}
       <IoMdGitCompare
         onClick={() => {

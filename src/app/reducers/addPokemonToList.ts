@@ -32,6 +32,11 @@ export const addPokemonToList = createAsyncThunk(
       const index = userPokemons?.findIndex(
         (userPokemon) => userPokemon.id == pokemon.id
       );
+
+      console.log({ pokemonid: typeof pokemon.id });
+
+      console.log({ "index from add to list": index });
+
       if (index == -1) {
         const types: string[] = [];
 

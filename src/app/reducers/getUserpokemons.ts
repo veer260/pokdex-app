@@ -22,9 +22,10 @@ export const getUserPokemons = createAsyncThunk(
         where("email", "==", userInfo.email)
       );
       const pokemons = await getDocs(firebaseQuery);
+      const userPokemons: UserPokemonsType[] = [];
 
       if (pokemons.docs.length) {
-        const userPokemons: UserPokemonsType[] = [];
+        // const userPokemons: UserPokemonsType[] = [];
         // pokemons.forEach(async (fetchedPokemon) => {
         //   const pokemon = await fetchedPokemon.data();
         //   console.log(pokemon.email, pokemon.pokemon);
@@ -51,13 +52,14 @@ export const getUserPokemons = createAsyncThunk(
             id: pokemonData.pokemon.id,
             image: image,
             types: types,
+            firebaseId: fetchedPokemon.id,
           });
 
           //   console.log({ types });
         });
         // console.log({ userPokemons });
-        return userPokemons;
       }
+      return userPokemons;
     } catch (error) {
       console.log({ error });
     }

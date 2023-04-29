@@ -6,6 +6,7 @@ import {
 import getInitialPokemonData from "../reducers/getInitialPokemonData";
 import getPokemonsData from "../reducers/getPokemonsData";
 import { getUserPokemons } from "../reducers/getUserpokemons";
+import { removePokemonFromUserList } from "../reducers/removePokemonFromUserlist";
 
 const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
@@ -20,7 +21,9 @@ const PokemonSlice = createSlice({
   reducers: {
     addToCompare: (state, action) => {
       const index = state.compareQueue.findIndex(
-        (pokemon: GeneratedPokemonType) => pokemon.id == action.payload.id
+        (pokemon: GeneratedPokemonType) => {
+          return pokemon.id == action.payload.id;
+        }
       );
       if (index === -1) {
         if (state.compareQueue.length === 2) {
@@ -33,9 +36,9 @@ const PokemonSlice = createSlice({
       const index = state.compareQueue.findIndex(
         (pokemon: GeneratedPokemonType) => pokemon.id == action.payload.id
       );
-      console.log(action.payload);
+      // console.log(action.payload);
       let queue = [...state.compareQueue];
-      console.log({ queue });
+      // console.log({ queue });
       // console.log("removed :", queue.splice(index, 1));
 
       queue.splice(index, 1);
@@ -50,7 +53,20 @@ const PokemonSlice = createSlice({
       state.randomPokemons = action.payload;
     });
     builder.addCase(getUserPokemons.fulfilled, (state, action) => {
+      //@ts-ignore
       state.userPokemons = action.payload;
+    });
+    builder.addCase(removePokemonFromUserList.fulfilled, (state, action) => {
+      //@ts-ignore
+      let userPokemons = [...state.userPokemons];
+      //@ts-ignore
+      console.log({ "id from payload:": action.payload.id });
+      const index = userPokemons.findIndex(
+        (pokemon) => pokemon.firebaseId == action.payload?.id
+      );
+      console.log({ index });
+      userPokemons.splice(index, 1);
+      state.userPokemons = userPokemons;
     });
   },
 });
