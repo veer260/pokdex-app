@@ -28,18 +28,18 @@ const PokemonCard: React.FC<PokemonCardProp> = ({ pokemon }) => {
         <img
           // style={{filter: drop-shadow(20px 10px 10px rgba(20, 18, 18, 0.5058823529))}}
           className="w-[200px] drop-shadow-imageShadow "
-          src={pokemon.image}
+          // src={pokemon.image}
           onClick={() => {
             dispatch(setPokemonTab(pokemonTabs.description));
             navigate(`/pokemon/${pokemon.id}`);
           }}
-          // src={
-          //   pokemon.id < 10
-          //     ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${pokemon.id}.png`
-          //     : pokemon.id < 100
-          //     ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/0${pokemon.id}.png`
-          //     : `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`
-          // }
+          src={
+            pokemon.id < 10
+              ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${pokemon.id}.png`
+              : pokemon.id < 100
+              ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/0${pokemon.id}.png`
+              : `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`
+          }
           alt=""
           loading="lazy"
         />

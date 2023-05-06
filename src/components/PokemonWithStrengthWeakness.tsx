@@ -5,6 +5,9 @@ import PokemonProperty from "./PokemonProperty";
 import { useAppDispatch } from "../app/hooks";
 import { removeFromCompare } from "../app/slices/PokemonSlice";
 import { addPokemonToList } from "../app/reducers/addPokemonToList";
+import { useNavigate } from "react-router";
+import { setPokemonTab } from "../app/slices/AppSlice";
+import { pokemonTabs } from "../utils/Constants";
 
 interface PokemonWithStrengthWeaknessProps {
   pokemon: UserPokemonsType;
@@ -36,6 +39,7 @@ const PokemonWithStrengthWeakness: React.FC<
   // console.log({ pokemon });
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const typeImgArray = createTypeImgArray("resistance", pokemon.types);
   // console.log({ typeImgArray });
   // const images = pokemon.types.map((type) => {
@@ -105,7 +109,13 @@ const PokemonWithStrengthWeakness: React.FC<
           >
             Add
           </button>
-          <button className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-green-500 border-1">
+          <button
+            onClick={() => {
+              navigate(`/pokemon/${pokemon.id}`);
+              dispatch(setPokemonTab(pokemonTabs.description));
+            }}
+            className="flex-1 h-full uppercase transition-all duration-200 ease-in border border-gray-300 hover:bg-green-500 border-1"
+          >
             view
           </button>
           <button

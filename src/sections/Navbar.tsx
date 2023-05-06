@@ -41,10 +41,10 @@ const Navbar = () => {
       location.pathname.includes(route)
     );
 
-    console.log({ index });
+    // console.log({ index });
     translate(index);
 
-    console.log(location.pathname);
+    // console.log(location.pathname);
   }, [location.pathname]);
   return (
     <nav className="text-white font-bit min-h-[10vh] flex justify-between">
