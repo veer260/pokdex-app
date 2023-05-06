@@ -15,7 +15,7 @@ const navigationRoutes = [
   },
   {
     name: "Pokemon",
-    route: "/pokemon/4",
+    route: "/pokemon",
   },
   {
     name: "My List",
@@ -41,7 +41,7 @@ const Navbar = () => {
       location.pathname.includes(route)
     );
 
-    console.log(index);
+    console.log({ index });
     translate(index);
 
     console.log(location.pathname);

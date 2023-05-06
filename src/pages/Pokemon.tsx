@@ -20,7 +20,7 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
   const params = useParams();
 
   const dispatch = useAppDispatch();
-  console.log({ params });
+  // console.log({ params });
 
   const getEvolutionRecursive = (evolutionChain, level, evolutionData) => {
     if (!evolutionChain.evolves_to.length) {
@@ -63,9 +63,9 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
     const { data: encountersData } = await axios.get(
       data.location_area_encounters
     );
-    console.log({
-      " data from pokemon id get request": data,
-    });
+    // console.log({
+    //   " data from pokemon id get request": data,
+    // });
 
     const {
       data: {
@@ -146,7 +146,7 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
   const { currentPokemonTab } = useAppSelector((state) => state.app);
   return (
     <div className={styling}>
-      <div>
+      <div className="max-h-[100%] overflow-y-scroll">
         {currentPokemonTab == pokemonTabs.description && <Description />}
         {currentPokemonTab == pokemonTabs.evolution && <Evolution />}
         {currentPokemonTab == pokemonTabs.locations && <Locations />}
