@@ -13,6 +13,7 @@ const initialState: PokemonTypeInitialState = {
   randomPokemons: undefined,
   compareQueue: [],
   userPokemons: [],
+  currentPokemon: undefined,
 };
 
 const PokemonSlice = createSlice({
@@ -44,6 +45,9 @@ const PokemonSlice = createSlice({
       queue.splice(index, 1);
       state.compareQueue = queue;
     },
+    setCurrentPokemon: (state, action) => {
+      state.currentPokemon = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getInitialPokemonData.fulfilled, (state, action) => {
@@ -71,6 +75,7 @@ const PokemonSlice = createSlice({
   },
 });
 
-export const { addToCompare, removeFromCompare } = PokemonSlice.actions;
+export const { addToCompare, removeFromCompare, setCurrentPokemon } =
+  PokemonSlice.actions;
 
 export default PokemonSlice;
