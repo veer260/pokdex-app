@@ -152,7 +152,7 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
     }
 
     getPokemonInfo(image);
-  }, []);
+  }, [params]);
 
   const { currentPokemonTab } = useAppSelector((state) => state.app);
   return (

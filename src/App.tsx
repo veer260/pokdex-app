@@ -15,6 +15,7 @@ import { ToastContainer, ToastOptions, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { clearToasts } from "./app/slices/AppSlice";
+import SelectPokemon from "./pages/SelectPokemon";
 
 function App() {
   const { toasts } = useAppSelector((state) => state.app);
@@ -48,6 +49,7 @@ function App() {
           <Route path="/list" element={<MyList />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/pokemon/:id" element={<Pokemon />} />
+          <Route path="/pokemon" element={<SelectPokemon />} />
         </Routes>
         {/* <Wrapper /> */}
         <Footer />
