@@ -63,9 +63,19 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
     const { data: encountersData } = await axios.get(
       data.location_area_encounters
     );
-    // console.log({
-    //   " data from pokemon id get request": data,
-    // });
+    console.log({
+      " data from pokemon id get request": data,
+    });
+
+    const stats = [];
+    data.stats.map((stat) => {
+      stats.push({
+        name: stat.stat.name,
+        baseStat: stat.base_stat,
+      });
+    });
+
+    console.log({ stats });
 
     const {
       data: {
@@ -108,6 +118,7 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
         evolution,
         encounters,
         pokemonAbilities,
+        stats,
       })
     );
 
@@ -146,7 +157,7 @@ const Pokemon: React.FC<Props> = ({ styling }) => {
   const { currentPokemonTab } = useAppSelector((state) => state.app);
   return (
     <div className={styling}>
-      <div className="max-h-[100%] overflow-y-scroll">
+      <div className="h-[100%] overflow-y-scroll relative">
         {currentPokemonTab == pokemonTabs.description && <Description />}
         {currentPokemonTab == pokemonTabs.evolution && <Evolution />}
         {currentPokemonTab == pokemonTabs.locations && <Locations />}

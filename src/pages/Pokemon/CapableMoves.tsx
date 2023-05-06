@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../app/hooks";
+import StatComponent from "../../components/StatComponent";
 
 const CapableMoves = () => {
   const { currentPokemon } = useAppSelector((state) => state.pokemon);
@@ -33,6 +34,7 @@ const CapableMoves = () => {
           })}
         </div>
       </div>
+      {/* <StatComponent /> */}
     </div>
   );
 };

@@ -20,6 +20,11 @@ export interface UserPokemonsType extends GeneratedPokemonType {
   firebaseId?: string;
 }
 
+export interface PokemonStatType {
+  name: string;
+  baseStat: number;
+}
+
 export interface GeneratedPokemonType {
   name: string;
   id: number;
@@ -47,4 +52,5 @@ export interface currentPokemonType {
   evolutionLevel: number;
   evolution: { level: number; pokemon: { name: string; url: string } }[];
   pokemonAbilities: { abilities: string[]; moves: string[] };
+  stats: PokemonStatType[];
 }
