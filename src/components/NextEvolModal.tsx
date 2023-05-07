@@ -24,7 +24,7 @@ const NextEvolModal = () => {
   }
   console.log({ keys });
   return (
-    <div className="absolute flex flex-col p-2 font-bold w-[300px] text-gray-200 uppercase bg-gray-600 left-2 top-2 bg-opacity-70 gap-y-2">
+    <div className="lg:absolute bg-transparent flex flex-col mb-8 lg:mb-0 p-2 font-bold w-[300px] text-gray-200 uppercase lg:bg-gray-600 left-2 top-2 bg-opacity-70 gap-y-2">
       <h1 className="text-xl">{currentPokemon?.name}</h1>
       <div className="flex font-bold uppercase ">
         <span className="uppercase">Type:</span>

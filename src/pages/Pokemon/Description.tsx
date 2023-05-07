@@ -7,7 +7,7 @@ import NextEvolModal from "../../components/NextEvolModal";
 const Description = () => {
   const { currentPokemon } = useAppSelector((state) => state.pokemon);
   return (
-    <div className="h-[100%] flex justify-center relative">
+    <div className="h-[100%] flex flex-col items-center   lg:flex justify-center relative">
       <PokemonContainer image={currentPokemon?.image!} />
       <NextEvolModal />
       <StatComponent />

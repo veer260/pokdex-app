@@ -55,7 +55,7 @@ const Footer = () => {
                   (route.name == currentPokemonTab ? " bg-primary-color" : "")
                 }
               >
-                <span className="text-sm font-semibold tracking-widest text-gray-300 uppercase">
+                <span className="text-[12px] lg:text-sm font-semibold tracking-widest text-gray-300 uppercase">
                   {route.name}
                 </span>
               </div>
