@@ -40,7 +40,7 @@ const Footer = () => {
   const { pathname } = useLocation();
   return (
     <div className="min-h-[10%] text-white flex justify-between">
-      <div className="w-16 border-white border-[1px] border-opacity-20"></div>
+      <div className="w-6 lg:w-16 border-white border-[1px] border-opacity-20"></div>
       <div className="flex w-full text-white">
         {pathname.includes("/pokemon") &&
           routes.map((route) => {
@@ -62,7 +62,7 @@ const Footer = () => {
             );
           })}
       </div>
-      <div className="flex items-center justify-center w-16 box-border border-white border-opacity-20 border-[1px]">
+      <div className="flex items-center justify-center w-6 lg:w-16 box-border border-white border-opacity-20 border-[1px]">
         <IoLogOut
           onClick={() => {
             handleClick();

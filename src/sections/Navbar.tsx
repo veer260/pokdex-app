@@ -54,9 +54,13 @@ const Navbar = () => {
     // console.log(location.pathname);
   }, [location.pathname]);
   return (
-    <nav className="text-white font-bit min-h-[10vh] flex justify-between">
-      <div className="flex items-center justify-center w-16 h-full border-white border-opacity-20 border-[1px]">
-        <img src={pokeballIcon} className="w-8 h-8" alt="pokeball Icon" />
+    <nav className="text-white font-bit min-h-[40px] lg:min-h-[10vh] flex justify-between">
+      <div className="flex items-center justify-center w-6 lg:w-16 h-full border-white border-opacity-20 border-[1px]">
+        <img
+          src={pokeballIcon}
+          className="w-4 h-4 lg:w-8 lg:h-8"
+          alt="pokeball Icon"
+        />
       </div>
       <div className="flex justify-center flex-grow ">
         <div className="flex items-center relative justify-evenly w-full lg:w-[80%]">
@@ -79,7 +83,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center border-[0.5px] border-white border-opacity-20 justify-center w-16 h-full text-lg text-white">
+      <div className="flex items-center border-[0.5px] border-white border-opacity-20 justify-center w-6 lg:w-16 h-full text-lg text-white">
         <GiHamburgerMenu />
       </div>
     </nav>
