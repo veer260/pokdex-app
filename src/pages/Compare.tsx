@@ -10,7 +10,7 @@ const Compare: React.FC<Props> = ({ styling }) => {
   const { compareQueue } = useAppSelector(({ pokemon }) => pokemon);
   return (
     <div className={styling}>
-      <div className="flex h-full justify-evenly bg-[#19191f] bg-opacity-80">
+      <div className="flex flex-col lg:flex-row h-full justify-evenly bg-[#19191f] bg-opacity-80">
         {compareQueue[0] && compareQueue.length > 0 ? (
           <PokemonWithStrengthWeakness pokemon={compareQueue[0]} />
         ) : (

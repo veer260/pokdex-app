@@ -14,6 +14,7 @@
     "axios": "^1.3.6",
     "extract-colors": "^3.0.0",
     "firebase": "^9.20.0",
+    "netlify-cli": "^15.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",

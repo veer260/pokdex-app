@@ -50,6 +50,7 @@ function App() {
           <Route path="/compare" element={<Compare />} />
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/pokemon" element={<SelectPokemon />} />
+          <Route index element={<Search />} />
         </Routes>
         {/* <Wrapper /> */}
         <Footer />

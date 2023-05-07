@@ -58,25 +58,27 @@ const PokemonWithStrengthWeakness: React.FC<
   // console.log({ keys });
 
   return (
-    <div className="relative flex flex-col flex-1 w-full px-4 pt-6 ">
-      <div className="flex flex-col items-center w-full">
-        <h2 className="font-bold tracking-widest uppercase">{pokemon.name}</h2>
+    <div className="relative flex flex-row flex-1 w-full pt-2 lg:px-4 lg:pt-6 lg:flex-col ">
+      <div className="flex flex-col items-center flex-1 w-full">
+        <h2 className="text-sm font-bold tracking-widest uppercase lg:text-lg">
+          {pokemon.name}
+        </h2>
         <div>
           <img className="w-[130px]" src={pokemon.image} alt="" />
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 flex flex-col w-full p-2 pl-4 overflow-y-scroll ">
+      <div className="bottom-0 left-0 flex flex-col w-full p-2 pl-4 overflow-y-scroll flex-2 lg:absolute ">
         {/* Types */}
         <div className="flex items-center my-2 ">
-          <h4 className="w-[30%] uppercase text-gray-300 font-semibold text-sm tracking-widest">
+          <h4 className="w-[30%] uppercase text-gray-300 font-semibold text-[9px] lg:text-sm tracking-widest">
             type
           </h4>
           <div className="flex gap-x-2">
             {images.map((image) => {
               return (
                 <div>
-                  <img className="w-8 h-8" src={image} alt="" />
+                  <img className="w-4 h-4 lg:w-8 lg:h-8" src={image} alt="" />
                 </div>
               );
             })}
@@ -100,7 +102,7 @@ const PokemonWithStrengthWeakness: React.FC<
           typeWithImg={createTypeImgArray("weakness", pokemon.types)}
         />
 
-        <div className="flex h-[50px] w-full mt-2 ">
+        <div className="flex h-[25px] lg:h-[50px] w-full mt-2 ">
           <button
             onClick={() => {
               dispatch(addPokemonToList(pokemon));

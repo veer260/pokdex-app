@@ -27,22 +27,29 @@ const navigationRoutes = [
   },
 ];
 
-const translate = (index: number) => {
+const translate = (index: number, length: number) => {
   const underlines = document.querySelectorAll(".underline");
   for (let i = 0; i < underlines.length; i++) {
-    underlines[i].style.transform = "translateX(" + index * 200 + "px)";
+    underlines[i].style.transform = "translateX(" + index * length + "px)";
   }
 };
 
 const Navbar = () => {
   const location = useLocation();
+  let length;
+  useEffect(() => {
+    const links = document.querySelectorAll(".link");
+    length = links[0].clientWidth;
+    console.log({ length });
+  });
+
   useEffect(() => {
     const index = navigationRoutes.findIndex(({ route }) =>
       location.pathname.includes(route)
     );
 
     // console.log({ index });
-    translate(index);
+    translate(index, length);
 
     // console.log(location.pathname);
   }, [location.pathname]);
@@ -52,14 +59,14 @@ const Navbar = () => {
         <img src={pokeballIcon} className="w-8 h-8" alt="pokeball Icon" />
       </div>
       <div className="flex justify-center flex-grow ">
-        <div className="flex items-center relative justify-evenly w-[80%]">
+        <div className="flex items-center relative justify-evenly w-full lg:w-[80%]">
           {navigationRoutes.map(({ route, name }, index) => {
             return (
               <div
                 key={index}
-                className="box-border flex items-center justify-center flex-grow h-full cursor-pointer"
+                className="box-border flex items-center justify-center flex-1 flex-grow h-full cursor-pointer link"
               >
-                <Link className="font-medium " to={route}>
+                <Link className="text-xs font-medium lg:text-lg " to={route}>
                   {name}
                 </Link>
               </div>
