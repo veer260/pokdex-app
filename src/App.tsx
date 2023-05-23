@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { clearToasts } from "./app/slices/AppSlice";
 import SelectPokemon from "./pages/SelectPokemon";
+import Home from "./pages/Home";
 
 function App() {
   const { toasts } = useAppSelector((state) => state.app);
@@ -50,7 +51,7 @@ function App() {
           <Route path="/compare" element={<Compare />} />
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/pokemon" element={<SelectPokemon />} />
-          <Route index element={<Search />} />
+          <Route index element={<Home />} />
         </Routes>
         {/* <Wrapper /> */}
         <Footer />
